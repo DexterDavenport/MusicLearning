@@ -1,0 +1,230 @@
+{
+    "name": "Ukulele",
+    "icon": "🎸",
+    "tuning": [
+        "G",
+        "C",
+        "E",
+        "A"
+    ],
+    "strings": [
+        {
+            "name": "G String",
+            "open": "G",
+            "frets": [
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "C String",
+            "open": "C",
+            "frets": [
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "E String",
+            "open": "E",
+            "frets": [
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "A String",
+            "open": "A",
+            "frets": [
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A"
+            ],
+            "startFret": 0
+        }
+    ],
+    "chords": {
+        "C": {
+            "major": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G"
+                ],
+                "description": "Open C major"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        0,
+                        3,
+                        3,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "D#",
+                    "G"
+                ],
+                "description": "C minor"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G",
+                    "A#"
+                ],
+                "description": "C dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        2
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G",
+                    "B"
+                ],
+                "description": "C major 7th"
+            }
+        },
+        "G": {
+            "major": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        3,
+                        2
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D"
+                ],
+                "description": "Open G major"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        3,
+                        1
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "A#",
+                    "D"
+                ],
+                "description": "G minor"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        1,
+                        2
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D",
+                    "F"
+                ],
+                "description": "G dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        2,
+                        2
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D",
+                    "F#"
+                ],
+                "description": "G major 7th"
+            }
+        }
+    }
+}

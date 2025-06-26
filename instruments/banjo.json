@@ -1,0 +1,272 @@
+{
+    "name": "Banjo",
+    "icon": "🪕",
+    "tuning": [
+        "G",
+        "D",
+        "G",
+        "B",
+        "D"
+    ],
+    "strings": [
+        {
+            "name": "5th String (Short)",
+            "open": "G",
+            "frets": [
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G"
+            ],
+            "startFret": 5,
+            "isShortString": true
+        },
+        {
+            "name": "4th String",
+            "open": "D",
+            "frets": [
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "3rd String",
+            "open": "G",
+            "frets": [
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "2nd String",
+            "open": "B",
+            "frets": [
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "1st String",
+            "open": "D",
+            "frets": [
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D"
+            ],
+            "startFret": 0
+        }
+    ],
+    "chords": {
+        "G": {
+            "major": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "D",
+                    "G",
+                    "B",
+                    "D"
+                ],
+                "description": "Open G major"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "D",
+                    "G",
+                    "A#",
+                    "D"
+                ],
+                "description": "G minor"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "D",
+                    "G",
+                    "A",
+                    "D"
+                ],
+                "description": "G dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "D",
+                    "G",
+                    "A#",
+                    "D"
+                ],
+                "description": "G major 7th"
+            }
+        },
+        "C": {
+            "major": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        0,
+                        2,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "E",
+                    "G",
+                    "D",
+                    "F"
+                ],
+                "description": "C major"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        0,
+                        2,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "D#",
+                    "G",
+                    "D",
+                    "F"
+                ],
+                "description": "C minor"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        0,
+                        2,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "E",
+                    "G",
+                    "C",
+                    "F"
+                ],
+                "description": "C dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        0,
+                        2,
+                        0,
+                        2,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "E",
+                    "G",
+                    "B",
+                    "F"
+                ],
+                "description": "C major 7th"
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrument Practice - Notes & Lessons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Instrument Practice</h1>
+            <p>Master your instrument notes and chords with interactive practice tools</p>
+        </header>
+
+        <!-- Instrument Selector -->
+        <div class="instrument-selector">
+            <h3>Choose Your Instrument</h3>
+            <div class="instrument-buttons">
+                <!-- Instrument buttons will be created dynamically by JavaScript -->
+            </div>
+        </div>
+
+        <nav class="mode-selector">
+            <button class="mode-btn active" data-mode="flashcards">Flashcards</button>
+            <button class="mode-btn" data-mode="notes">Notes & Chords</button>
+        </nav>
+
+        <main>
+            <!-- Flashcards Mode -->
+            <div id="flashcards-mode" class="practice-mode active">
+                <div class="flashcard-container">
+                    <!-- Flashcard Options -->
+                    <div class="flashcard-options">
+                        <div class="option-group">
+                            <h3>Practice Type</h3>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="notes" data-type="practice">Notes
+                                    Only</button>
+                                <button class="option-btn" data-option="chords" data-type="practice">Chords
+                                    Only</button>
+                                <button class="option-btn" data-option="both" data-type="practice">Both</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group" id="chord-type-options" style="display: none;">
+                            <h3>Chord Types</h3>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="major"
+                                    data-type="chordType">Major</button>
+                                <button class="option-btn active" data-option="minor"
+                                    data-type="chordType">Minor</button>
+                                <button class="option-btn active" data-option="seventh"
+                                    data-type="chordType">7th</button>
+                                <button class="option-btn active" data-option="major7" data-type="chordType">Major
+                                    7</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Direction</h3>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="note-to-position"
+                                    data-type="direction">Note → Position</button>
+                                <button class="option-btn" data-option="position-to-note" data-type="direction">Position
+                                    → Note</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Mode</h3>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="timed" data-type="mode">Timed</button>
+                                <button class="option-btn" data-option="manual" data-type="mode">Manual</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group" id="timing-options">
+                            <h3>Time Limit</h3>
+                            <div class="timing-controls">
+                                <label for="time-slider" class="sr-only">Time limit in seconds</label>
+                                <input type="range" id="time-slider" min="1" max="10" value="3" class="time-slider"
+                                    aria-label="Time limit in seconds">
+                                <span id="time-display">3 seconds</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard">
+                        <div class="note-display">
+                            <span id="current-note">Click Start to Begin</span>
+                        </div>
+                        <div class="controls">
+                            <button id="start-btn" class="btn primary">Start Practice</button>
+                            <button id="next-btn" class="btn secondary" style="display: none;">Next</button>
+                            <button id="reveal-btn" class="btn reveal" style="display: none;">Reveal Answer</button>
+                        </div>
+                        <div class="feedback" id="feedback" style="display: none;">
+                            <div class="feedback-content">
+                                <h3 id="feedback-title"></h3>
+                                <p id="feedback-message"></p>
+                                <div class="fretboard-display" id="fretboard-display"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes & Chords Mode -->
+            <div id="notes-mode" class="practice-mode">
+                <div class="notes-container">
+                    <div class="notes-selector">
+                        <div class="tuning-info">
+                            <h3 id="tuning-display">Standard Tuning: G-D-A-E</h3>
+                            <p>From lowest to highest string</p>
+                        </div>
+                        <div class="note-categories">
+                            <button class="note-category-btn active" data-category="natural">Natural Notes</button>
+                            <button class="note-category-btn" data-category="sharp">Sharp Notes</button>
+                            <button class="note-category-btn" data-category="flat">Flat Notes</button>
+                        </div>
+                        <div class="notes-grid" id="notes-grid">
+                            <!-- Notes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="note-details">
+                        <div class="selected-note-info" id="selected-note-info" style="display: none;">
+                            <h2 id="selected-note-name">Select a note above</h2>
+                            <div class="note-positions">
+                                <h4>Positions on Fretboard:</h4>
+                                <div class="fretboard-display" id="note-fretboard"></div>
+                            </div>
+                            <div class="chord-variations">
+                                <h4>Chord Variations:</h4>
+                                <div class="chord-categories">
+                                    <button class="chord-cat-btn active" data-chord-cat="major">Major</button>
+                                    <button class="chord-cat-btn" data-chord-cat="minor">Minor</button>
+                                    <button class="chord-cat-btn" data-chord-cat="seventh">7th</button>
+                                    <button class="chord-cat-btn" data-chord-cat="major7">Major 7</button>
+                                </div>
+                                <div class="chord-list" id="chord-variations-list">
+                                    <!-- Chord variations will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built for instrument practice • Easy to extend for other instruments</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

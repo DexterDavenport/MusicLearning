@@ -1,0 +1,368 @@
+{
+    "name": "Guitar",
+    "icon": "🎸",
+    "tuning": [
+        "E",
+        "A",
+        "D",
+        "G",
+        "B",
+        "E"
+    ],
+    "strings": [
+        {
+            "name": "E String (Lowest)",
+            "open": "E",
+            "frets": [
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "A String",
+            "open": "A",
+            "frets": [
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "D String",
+            "open": "D",
+            "frets": [
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "G String",
+            "open": "G",
+            "frets": [
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "B String",
+            "open": "B",
+            "frets": [
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B"
+            ],
+            "startFret": 0
+        },
+        {
+            "name": "E String (Highest)",
+            "open": "E",
+            "frets": [
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E"
+            ],
+            "startFret": 0
+        }
+    ],
+    "chords": {
+        "C": {
+            "major": {
+                "positions": [
+                    [
+                        0,
+                        3,
+                        2,
+                        0,
+                        1,
+                        0
+                    ],
+                    [
+                        8,
+                        10,
+                        10,
+                        9,
+                        8,
+                        8
+                    ],
+                    [
+                        3,
+                        3,
+                        2,
+                        0,
+                        1,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G"
+                ],
+                "description": "C major - multiple positions"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        8,
+                        10,
+                        10,
+                        8,
+                        8,
+                        8
+                    ],
+                    [
+                        3,
+                        3,
+                        3,
+                        0,
+                        1,
+                        0
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "D#",
+                    "G"
+                ],
+                "description": "C minor - barre and shape"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        0,
+                        3,
+                        2,
+                        3,
+                        1,
+                        0
+                    ],
+                    [
+                        8,
+                        10,
+                        8,
+                        9,
+                        8,
+                        8
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G",
+                    "A#"
+                ],
+                "description": "C dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        0,
+                        3,
+                        2,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        8,
+                        10,
+                        9,
+                        9,
+                        8,
+                        8
+                    ]
+                ],
+                "notes": [
+                    "C",
+                    "E",
+                    "G",
+                    "B"
+                ],
+                "description": "C major 7th"
+            }
+        },
+        "G": {
+            "major": {
+                "positions": [
+                    [
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        3
+                    ],
+                    [
+                        3,
+                        5,
+                        5,
+                        4,
+                        3,
+                        3
+                    ],
+                    [
+                        10,
+                        12,
+                        12,
+                        11,
+                        10,
+                        10
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D"
+                ],
+                "description": "G major - multiple positions"
+            },
+            "minor": {
+                "positions": [
+                    [
+                        3,
+                        5,
+                        5,
+                        3,
+                        3,
+                        3
+                    ],
+                    [
+                        10,
+                        12,
+                        12,
+                        10,
+                        10,
+                        10
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "A#",
+                    "D"
+                ],
+                "description": "G minor - barre positions"
+            },
+            "seventh": {
+                "positions": [
+                    [
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    [
+                        3,
+                        5,
+                        3,
+                        4,
+                        3,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D",
+                    "F"
+                ],
+                "description": "G dominant 7th"
+            },
+            "major7": {
+                "positions": [
+                    [
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        2
+                    ],
+                    [
+                        3,
+                        5,
+                        4,
+                        4,
+                        3,
+                        3
+                    ]
+                ],
+                "notes": [
+                    "G",
+                    "B",
+                    "D",
+                    "F#"
+                ],
+                "description": "G major 7th"
+            }
+        }
+    }
+}
