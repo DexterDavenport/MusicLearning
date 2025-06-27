@@ -41,12 +41,27 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .category-btn:hover {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
+}
+
+.category-btn:active {
+    transform: translateY(0);
+    background: #5a6fd8;
 }
 
 .category-btn.active {
@@ -60,6 +75,8 @@
     gap: 8px;
     max-height: 400px;
     overflow-y: auto;
+    /* Improve scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .chord-item {
@@ -71,12 +88,26 @@
     transition: all 0.3s ease;
     font-weight: 500;
     text-align: center;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .chord-item:hover {
     border-color: #667eea;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.chord-item:active {
+    transform: translateY(0);
+    background: #f8f9fa;
 }
 
 .chord-item.active {
@@ -105,6 +136,7 @@
     color: #666;
     margin-bottom: 25px;
     font-size: 1.1rem;
+    line-height: 1.4;
 }
 
 .chord-fretboard {
@@ -139,6 +171,13 @@
     border-radius: 20px;
     font-weight: 500;
     font-size: 0.9rem;
+    /* Ensure minimum touch target size */
+    min-height: 36px;
+    min-width: 36px;
+    /* Center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chord-fretboard-display {
@@ -152,24 +191,190 @@
     height: auto;
 }
 
-/* Responsive Design for Chords */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
     .chords-container {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 20px;
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+
+    .chord-selector {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .chord-selector h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
     }
 
     .chord-categories {
         justify-content: center;
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .category-btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 18px;
+    }
+
+    .chord-list {
+        max-height: 300px;
+        gap: 6px;
+    }
+
+    .chord-item {
+        padding: 14px 16px;
+        min-height: 48px;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+
+    .selected-chord-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .selected-chord-info p {
+        font-size: 1rem;
+    }
+
+    .chord-notes {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .chord-notes h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .note-badge {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        min-height: 40px;
+        min-width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chords-container {
+        padding: 15px;
+        margin: 0 5px;
+        border-radius: 12px;
+    }
+
+    .chord-selector {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .chord-selector h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
     }
 
     .category-btn {
         font-size: 0.8rem;
-        padding: 6px 12px;
+        padding: 8px 12px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .chord-item {
+        padding: 12px 14px;
+        min-height: 44px;
+        font-size: 0.9rem;
     }
 
     .selected-chord-info h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+    .selected-chord-info p {
+        font-size: 0.95rem;
+    }
+
+    .chord-notes {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .note-badge {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-height: 36px;
+        min-width: 36px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .chords-container {
+        padding: 12px;
+        margin: 0 3px;
+    }
+
+    .chord-selector {
+        padding: 12px;
+    }
+
+    .category-btn {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .chord-item {
+        padding: 10px 12px;
+        min-height: 40px;
+        font-size: 0.85rem;
+    }
+
+    .selected-chord-info h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .chords-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .chord-selector {
+        padding: 15px;
+    }
+
+    .chord-categories {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .category-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .chord-list {
+        max-height: 250px;
+    }
+
+    .chord-item {
+        padding: 8px 12px;
+        min-height: 40px;
+        font-size: 0.85rem;
     }
 }

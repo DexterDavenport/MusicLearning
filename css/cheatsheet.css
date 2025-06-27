@@ -21,6 +21,7 @@
 
 .tuning-info p {
     color: #666;
+    line-height: 1.4;
 }
 
 .notes-grid {
@@ -59,6 +60,17 @@
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
+    /* Center content vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .note-item:hover {
@@ -69,6 +81,7 @@
 
 .note-item:active {
     transform: scale(0.98);
+    background: #f0f0f0;
 }
 
 .note-item.open {
@@ -82,6 +95,10 @@
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
+.note-item.open:active {
+    background: #4a5fc8;
+}
+
 .note-item.fret {
     background: #f8f9fa;
     color: #495057;
@@ -92,17 +109,146 @@
     color: #667eea;
 }
 
-/* Responsive Design for Cheatsheet */
+.note-item.fret:active {
+    background: #dee2e6;
+}
+
+/* Mobile Optimizations */
 @media (max-width: 768px) {
     .cheatsheet-container {
         padding: 20px;
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+
+    .tuning-info {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+
+    .tuning-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .tuning-info p {
+        font-size: 0.9rem;
     }
 
     .notes-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .string-section {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .string-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
     }
 
     .fret-notes {
         grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 6px;
+    }
+
+    .note-item {
+        padding: 10px 8px;
+        min-height: 48px;
+        min-width: 48px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cheatsheet-container {
+        padding: 15px;
+        margin: 0 5px;
+        border-radius: 12px;
+    }
+
+    .tuning-info {
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+
+    .tuning-info h3 {
+        font-size: 1rem;
+    }
+
+    .tuning-info p {
+        font-size: 0.85rem;
+    }
+
+    .notes-grid {
+        gap: 12px;
+    }
+
+    .string-section {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .string-section h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .fret-notes {
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+        gap: 5px;
+    }
+
+    .note-item {
+        padding: 8px 6px;
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 0.85rem;
+        border-radius: 5px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .cheatsheet-container {
+        padding: 12px;
+        margin: 0 3px;
+    }
+
+    .fret-notes {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 4px;
+    }
+
+    .note-item {
+        padding: 6px 4px;
+        min-height: 40px;
+        min-width: 40px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .cheatsheet-container {
+        padding: 15px 20px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+    }
+
+    .fret-notes {
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    }
+
+    .note-item {
+        padding: 8px 6px;
+        min-height: 42px;
+        min-width: 42px;
     }
 }

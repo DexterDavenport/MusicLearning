@@ -36,12 +36,26 @@
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 100px;
+    /* Ensure minimum touch target size */
+    min-height: 80px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .instrument-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.instrument-btn:active {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .instrument-btn.active {
@@ -61,14 +75,111 @@
     font-size: 0.9rem;
 }
 
-/* Responsive Design for Instruments */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
+    .instrument-selector {
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .instrument-selector h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
     .instrument-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
     }
 
     .instrument-btn {
         min-width: 150px;
+        min-height: 90px;
+        padding: 20px 25px;
+        border-radius: 12px;
+    }
+
+    .instrument-icon {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .instrument-name {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 480px) {
+    .instrument-selector {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .instrument-selector h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .instrument-btn {
+        min-width: 130px;
+        min-height: 80px;
+        padding: 15px 20px;
+    }
+
+    .instrument-icon {
+        font-size: 2rem;
+    }
+
+    .instrument-name {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .instrument-btn {
+        min-width: 120px;
+        min-height: 75px;
+        padding: 12px 16px;
+    }
+
+    .instrument-icon {
+        font-size: 1.8rem;
+    }
+
+    .instrument-name {
+        font-size: 0.85rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .instrument-selector {
+        margin-bottom: 15px;
+        padding: 10px 15px;
+    }
+
+    .instrument-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .instrument-btn {
+        min-width: 120px;
+        min-height: 70px;
+        padding: 12px 16px;
+    }
+
+    .instrument-icon {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+    }
+
+    .instrument-name {
+        font-size: 0.85rem;
     }
 }

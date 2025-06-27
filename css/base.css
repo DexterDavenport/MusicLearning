@@ -10,6 +10,11 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     color: #333;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -61,11 +66,24 @@ header p {
     color: white;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .mode-btn:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
+}
+
+.mode-btn:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .mode-btn.active {
@@ -92,10 +110,52 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* Mobile-First Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
+        /* Ensure full width on mobile */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    header {
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        /* Prevent text wrapping issues */
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    header p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .mode-selector {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .mode-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px 24px;
+        font-size: 1.1rem;
+        /* Larger touch targets on mobile */
+        min-height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
     }
 
     header h1 {
@@ -103,23 +163,65 @@ footer {
     }
 
     header p {
-        font-size: 1rem;
-    }
-
-    .mode-selector {
-        flex-direction: column;
-        align-items: center;
+        font-size: 0.95rem;
     }
 
     .mode-btn {
-        width: 200px;
+        padding: 14px 20px;
+        font-size: 1rem;
+        max-width: 250px;
+    }
+
+    /* Ensure buttons are large enough for touch */
+    .btn {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin: 5px;
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 
-@media (max-width: 480px) {
-    .btn {
+/* Extra small devices */
+@media (max-width: 360px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .mode-btn {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        max-width: 220px;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
         padding: 10px 20px;
-        font-size: 0.9rem;
-        margin: 5px;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .mode-selector {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .mode-btn {
+        width: auto;
+        max-width: none;
+        padding: 12px 20px;
     }
 }

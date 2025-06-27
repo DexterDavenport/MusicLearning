@@ -34,6 +34,9 @@
     width: 100%;
     transition: all 0.3s ease;
     position: relative;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .flashcard:hover {
@@ -75,6 +78,7 @@
 .feedback-content p {
     margin-bottom: 15px;
     color: #666;
+    line-height: 1.5;
 }
 
 .fretboard-display {
@@ -87,6 +91,8 @@
     text-align: center;
     margin-top: 15px;
     overflow-x: auto;
+    /* Improve scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .fretboard-display svg {
@@ -140,6 +146,15 @@
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 120px;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .option-btn:hover {
@@ -147,6 +162,11 @@
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+    background: #5a6fd8;
 }
 
 .option-btn.active {
@@ -187,6 +207,8 @@
     outline: none;
     -webkit-appearance: none;
     appearance: none;
+    /* Improve touch interaction */
+    touch-action: manipulation;
 }
 
 .time-slider::-webkit-slider-thumb {
@@ -235,6 +257,11 @@
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+[data-type="chordType"].option-btn:active {
+    transform: translateY(0);
+    background: #229954;
 }
 
 /* Timer Display */
@@ -303,10 +330,12 @@
     line-height: 1.5;
 }
 
-/* Responsive adjustments for flashcard options */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
     .flashcard {
         padding: 30px 20px;
+        margin: 0 10px;
+        border-radius: 15px;
     }
 
     .note-display span {
@@ -314,36 +343,208 @@
     }
 
     .flashcard-options {
-        padding: 20px;
+        padding: 30px 20px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        /* Make options container more prominent on mobile */
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .option-group {
+        margin-bottom: 30px;
+    }
+
+    .option-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .option-group h3 {
+        font-size: 1.2rem;
         margin-bottom: 20px;
     }
 
     .option-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
 
     .option-btn {
         width: 100%;
-        max-width: 200px;
+        max-width: 280px;
+        padding: 16px 20px;
+        font-size: 1.1rem;
+        min-height: 52px;
     }
 
     .timing-controls {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
 
     .time-slider {
-        width: 150px;
+        width: 250px;
+        height: 8px;
+    }
+
+    .time-slider::-webkit-slider-thumb {
+        width: 24px;
+        height: 24px;
+    }
+
+    .time-slider::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+    }
+
+    .timer-text {
+        font-size: 1.1rem;
+    }
+
+    .completion-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .completion-content p {
+        font-size: 1rem;
+    }
+
+    .feedback {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .fretboard-display {
+        padding: 15px;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .flashcard {
         padding: 20px 15px;
+        margin: 0 5px;
+        border-radius: 12px;
     }
 
     .note-display span {
         font-size: 2rem;
+    }
+
+    .flashcard-options {
+        padding: 25px 15px;
+        border-radius: 12px;
+        margin: 0 5px 20px 5px;
+        min-height: 350px;
+    }
+
+    .option-group {
+        margin-bottom: 25px;
+    }
+
+    .option-group h3 {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+    }
+
+    .option-btn {
+        max-width: 260px;
+        padding: 14px 18px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .time-slider {
+        width: 220px;
+    }
+
+    .timer-text {
+        font-size: 1rem;
+    }
+
+    .completion-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .completion-content p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .flashcard {
+        padding: 15px 10px;
+    }
+
+    .note-display span {
+        font-size: 1.8rem;
+    }
+
+    .flashcard-options {
+        padding: 20px 12px;
+        min-height: 320px;
+    }
+
+    .option-group {
+        margin-bottom: 20px;
+    }
+
+    .option-group h3 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .option-btn {
+        max-width: 240px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    .time-slider {
+        width: 200px;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .flashcard {
+        padding: 20px 25px;
+    }
+
+    .note-display span {
+        font-size: 2.2rem;
+    }
+
+    .flashcard-options {
+        padding: 20px 25px;
+        min-height: 300px;
+    }
+
+    .option-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .option-btn {
+        width: auto;
+        max-width: none;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    .timing-controls {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .time-slider {
+        width: 180px;
     }
 }

@@ -33,6 +33,7 @@
 .tuning-info p {
     color: #666;
     font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .note-categories {
@@ -52,12 +53,27 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .note-category-btn:hover {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
+}
+
+.note-category-btn:active {
+    transform: translateY(0);
+    background: #5a6fd8;
 }
 
 .note-category-btn.active {
@@ -72,6 +88,8 @@
     gap: 8px;
     max-height: 400px;
     overflow-y: auto;
+    /* Improve scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .note-item {
@@ -86,6 +104,17 @@
     -webkit-user-select: none;
     user-select: none;
     font-size: 0.9rem;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
+    /* Center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .note-item:hover {
@@ -96,6 +125,7 @@
 
 .note-item:active {
     transform: scale(0.98);
+    background: #f0f0f0;
 }
 
 .note-item.natural {
@@ -117,6 +147,10 @@
     background: #667eea;
     color: white;
     border-color: #667eea;
+}
+
+.note-item.active:active {
+    background: #5a6fd8;
 }
 
 .note-details {
@@ -174,12 +208,27 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .chord-cat-btn:hover {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
+}
+
+.chord-cat-btn:active {
+    transform: translateY(0);
+    background: #5a6fd8;
 }
 
 .chord-cat-btn.active {
@@ -193,6 +242,8 @@
     gap: 10px;
     max-height: 300px;
     overflow-y: auto;
+    /* Improve scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .chord-variation-item {
@@ -207,12 +258,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    /* Prevent text selection on mobile */
+    -webkit-user-select: none;
+    user-select: none;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: transparent;
+    /* Better touch interaction */
+    touch-action: manipulation;
 }
 
 .chord-variation-item:hover {
     border-color: #667eea;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.chord-variation-item:active {
+    transform: translateY(0);
+    background: #f8f9fa;
 }
 
 .chord-variation-item.active {
@@ -230,23 +295,280 @@
     opacity: 0.8;
 }
 
-/* Responsive Design for Notes */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
     .notes-container {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 20px;
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+
+    .notes-selector {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .tuning-info {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .tuning-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .tuning-info p {
+        font-size: 0.85rem;
     }
 
     .note-categories {
         justify-content: center;
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .note-category-btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 18px;
     }
 
     .chord-categories {
         justify-content: center;
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .chord-cat-btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 18px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+        gap: 6px;
+        max-height: 300px;
+    }
+
+    .note-item {
+        padding: 10px 6px;
+        min-height: 48px;
+        min-width: 48px;
+        font-size: 0.85rem;
+        border-radius: 6px;
     }
 
     .selected-note-info h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    .note-positions h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .chord-variations {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .chord-variations h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .chord-list {
+        max-height: 250px;
+        gap: 8px;
+    }
+
+    .chord-variation-item {
+        padding: 14px 16px;
+        min-height: 48px;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notes-container {
+        padding: 15px;
+        margin: 0 5px;
+        border-radius: 12px;
+    }
+
+    .notes-selector {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .tuning-info h3 {
+        font-size: 1rem;
+    }
+
+    .tuning-info p {
+        font-size: 0.8rem;
+    }
+
+    .note-category-btn {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .chord-cat-btn {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 5px;
+    }
+
+    .note-item {
+        padding: 8px 4px;
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+
+    .selected-note-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .note-positions h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .chord-variations {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .chord-variations h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .chord-variation-item {
+        padding: 12px 14px;
+        min-height: 44px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .notes-container {
+        padding: 12px;
+        margin: 0 3px;
+    }
+
+    .notes-selector {
+        padding: 12px;
+    }
+
+    .note-category-btn {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .chord-cat-btn {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+        gap: 4px;
+    }
+
+    .note-item {
+        padding: 6px 3px;
+        min-height: 40px;
+        min-width: 40px;
+        font-size: 0.75rem;
+    }
+
+    .selected-note-info h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .notes-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .notes-selector {
+        padding: 15px;
+    }
+
+    .note-categories {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .note-category-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .chord-categories {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .chord-cat-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        max-height: 200px;
+    }
+
+    .note-item {
+        padding: 8px 4px;
+        min-height: 42px;
+        min-width: 42px;
+        font-size: 0.8rem;
+    }
+
+    .chord-list {
+        max-height: 200px;
+    }
+
+    .chord-variation-item {
+        padding: 8px 12px;
+        min-height: 40px;
+        font-size: 0.85rem;
     }
 }
