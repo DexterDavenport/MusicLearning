@@ -166,7 +166,7 @@ export async function updateInstrumentDisplay() {
     const { currentInstrument, instruments } = await import('./config.js');
 
     const instrument = instruments[currentInstrument];
-    if (instrument) {
+    if (instrument && tuningDisplay) {
         setText(tuningDisplay, `${instrument.name} Tuning: ${instrument.tuning.join('-')}`);
     }
 }
