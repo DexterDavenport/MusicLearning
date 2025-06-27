@@ -6,14 +6,7 @@ import { setText } from './dom.js';
 // Load instrument data from JSON files
 export async function loadInstruments() {
     try {
-        // Get list of available instruments from the instruments folder
-        const response = await fetch('./instruments/');
-        if (!response.ok) {
-            throw new Error('Could not access instruments folder');
-        }
-
-        // For now, we'll hardcode the known instruments since we can't list directory contents
-        // In a real server environment, you'd want to implement a server-side endpoint to list files
+        // Use the hardcoded list of instrument files
         const instrumentFiles = ['mandolin.json', 'guitar.json', 'ukulele.json', 'banjo.json'];
 
         const newInstruments = {};
@@ -21,7 +14,7 @@ export async function loadInstruments() {
 
         for (const fileName of instrumentFiles) {
             try {
-                const instrumentResponse = await fetch(`/instruments/${fileName}`);
+                const instrumentResponse = await fetch(`./instruments/${fileName}`);
                 if (instrumentResponse.ok) {
                     const instrumentData = await instrumentResponse.json();
                     const instrumentKey = fileName.replace('.json', '');
