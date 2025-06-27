@@ -1,0 +1,16 @@
+/* Main CSS File - Imports all component styles */
+
+/* Import order matters - base styles first, then components, then specific features */
+
+/* Base styles and layout */
+@import url('base.css');
+
+/* Common UI components */
+@import url('components.css');
+
+/* Feature-specific styles */
+@import url('instruments.css');
+@import url('flashcards.css');
+@import url('cheatsheet.css');
+@import url('chords.css');
+@import url('notes.css');

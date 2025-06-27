@@ -1,0 +1,74 @@
+/* Instrument Selector Styles */
+
+.instrument-selector {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.instrument-selector h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.instrument-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.instrument-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.instrument-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.instrument-btn.active {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.instrument-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.instrument-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design for Instruments */
+@media (max-width: 768px) {
+    .instrument-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .instrument-btn {
+        min-width: 150px;
+    }
+}

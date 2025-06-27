@@ -1,0 +1,349 @@
+/* Flashcards Mode Styles */
+
+/* Flashcard Settings */
+.flashcard-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flashcard-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.settings-controls {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Flashcard */
+.flashcard {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.note-display {
+    margin-bottom: 30px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-display span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.controls {
+    margin-bottom: 30px;
+}
+
+/* Feedback */
+.feedback {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.feedback-content h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.feedback-content p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.fretboard-display {
+    background: #2c3e50;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family: monospace;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.fretboard-display svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Flashcard Options */
+.flashcard-options {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+    border: 2px solid #f8f9fa;
+}
+
+.option-group {
+    margin-bottom: 25px;
+}
+
+.option-group:last-child {
+    margin-bottom: 0;
+}
+
+.option-group h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.option-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    padding: 10px 16px;
+    border: 2px solid #667eea;
+    border-radius: 25px;
+    background: white;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.option-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.option-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: #f8f9fa;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+.option-btn:disabled:hover {
+    background: #f8f9fa;
+    color: #6c757d;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Timing Controls */
+.timing-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-slider {
+    width: 200px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e9ecef;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+.time-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+#time-display {
+    color: #667eea;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Special styling for chord type buttons */
+[data-type="chordType"].option-btn {
+    min-width: 80px;
+    font-size: 0.85rem;
+}
+
+[data-type="chordType"].option-btn.active {
+    background: #27ae60;
+    color: white;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+[data-type="chordType"].option-btn:hover {
+    background: #27ae60;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+/* Timer Display */
+.timer-display {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.timer-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.timer-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 4px;
+    width: 100%;
+    transition: width 0.1s linear;
+}
+
+.timer-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+    font-family: 'Courier New', monospace;
+}
+
+/* Completion Banner */
+.completion-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.completion-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.completion-content h2 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.completion-content p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for flashcard options */
+@media (max-width: 768px) {
+    .flashcard {
+        padding: 30px 20px;
+    }
+
+    .note-display span {
+        font-size: 2.5rem;
+    }
+
+    .flashcard-options {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .option-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .timing-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .time-slider {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard {
+        padding: 20px 15px;
+    }
+
+    .note-display span {
+        font-size: 2rem;
+    }
+}

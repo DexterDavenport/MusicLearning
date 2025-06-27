@@ -1,0 +1,142 @@
+/* Common UI Components */
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn.primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background: #f8f9fa;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.btn.secondary:hover {
+    background: #667eea;
+    color: white;
+}
+
+.btn.reveal {
+    background: #f39c12;
+    color: white;
+    border: none;
+}
+
+.btn.reveal:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+/* Modal */
+.chord-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.chord-modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.chord-modal-content h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.chord-modal-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+/* Close Flashcard Button */
+.close-flashcard-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-flashcard-btn:hover {
+    background: #f0f0f0;
+    color: #666;
+    transform: scale(1.1);
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

@@ -1,0 +1,252 @@
+/* Notes & Chords Mode Styles */
+
+.notes-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    min-height: 600px;
+}
+
+.notes-selector {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.tuning-info {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tuning-info h3 {
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.tuning-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.note-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.note-category-btn {
+    padding: 8px 16px;
+    border: 2px solid #667eea;
+    border-radius: 20px;
+    background: white;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.note-category-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.note-category-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.note-item {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+.note-item:hover {
+    border-color: #667eea;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.note-item:active {
+    transform: scale(0.98);
+}
+
+.note-item.natural {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.note-item.sharp {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.note-item.flat {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.note-item.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.note-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.selected-note-info {
+    text-align: center;
+}
+
+.selected-note-info h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.note-positions {
+    margin-bottom: 30px;
+}
+
+.note-positions h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.chord-variations {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.chord-variations h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.chord-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.chord-cat-btn {
+    padding: 8px 16px;
+    border: 2px solid #667eea;
+    border-radius: 20px;
+    background: white;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chord-cat-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.chord-cat-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.chord-list {
+    display: grid;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.chord-variation-item {
+    padding: 12px 16px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chord-variation-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.chord-variation-item.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.chord-variation-name {
+    font-weight: 600;
+}
+
+.chord-variation-description {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design for Notes */
+@media (max-width: 768px) {
+    .notes-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .note-categories {
+        justify-content: center;
+    }
+
+    .chord-categories {
+        justify-content: center;
+    }
+
+    .selected-note-info h2 {
+        font-size: 1.5rem;
+    }
+}

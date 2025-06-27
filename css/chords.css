@@ -1,0 +1,175 @@
+/* Chords Mode Styles */
+
+.chords-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    min-height: 600px;
+}
+
+.chord-selector {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.chord-selector h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.chord-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border: 2px solid #667eea;
+    border-radius: 20px;
+    background: white;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.chord-list {
+    display: grid;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chord-item {
+    padding: 12px 16px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-align: center;
+}
+
+.chord-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.chord-item.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.chord-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.selected-chord-info {
+    text-align: center;
+}
+
+.selected-chord-info h2 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.selected-chord-info p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.chord-fretboard {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.chord-notes {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.chord-notes h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.chord-notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.note-badge {
+    background: #667eea;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.chord-fretboard-display {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.chord-fretboard-display svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design for Chords */
+@media (max-width: 768px) {
+    .chords-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .chord-categories {
+        justify-content: center;
+    }
+
+    .category-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .selected-chord-info h2 {
+        font-size: 1.5rem;
+    }
+}
