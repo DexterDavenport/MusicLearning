@@ -1,7 +1,7 @@
 // Instrument Management Module
 
 import { setInstruments, setAvailableInstruments, instruments } from './config.js';
-import { setText } from './dom.js';
+import { setText, tuningDisplay } from './dom.js';
 
 // Load instrument data from JSON files
 export async function loadInstruments() {
