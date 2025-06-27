@@ -32,8 +32,8 @@
         <main>
             <!-- Flashcards Mode -->
             <div id="flashcards-mode" class="practice-mode active">
-                <div class="flashcard-container">
-                    <!-- Flashcard Options -->
+                <!-- Settings View -->
+                <div id="flashcard-settings" class="flashcard-settings">
                     <div class="flashcard-options">
                         <div class="option-group">
                             <h3>Practice Type</h3>
@@ -89,13 +89,41 @@
                         </div>
                     </div>
 
+                    <div class="settings-controls">
+                        <button id="start-practice-btn" class="btn primary">Start Practice</button>
+                    </div>
+                </div>
+
+                <!-- Flashcard View -->
+                <div id="flashcard-view" class="flashcard-view" style="display: none;">
                     <div class="flashcard">
+                        <button id="close-flashcard-btn" class="close-flashcard-btn"
+                            aria-label="Back to Settings">×</button>
+
+                        <!-- Completion Banner -->
+                        <div id="completion-banner" class="completion-banner" style="display: none;">
+                            <div class="completion-content">
+                                <h2>🎉 Practice Complete!</h2>
+                                <p>You've practiced all available notes and chords!</p>
+                                <button id="restart-practice-btn" class="btn primary">Practice Again</button>
+                            </div>
+                        </div>
+
+                        <!-- Timer Display -->
+                        <div id="timer-display" class="timer-display" style="display: none;">
+                            <div class="timer-bar">
+                                <div id="timer-progress" class="timer-progress"></div>
+                            </div>
+                            <div class="timer-text">
+                                <span id="timer-countdown">3.0</span>
+                            </div>
+                        </div>
+
                         <div class="note-display">
                             <span id="current-note">Click Start to Begin</span>
                         </div>
                         <div class="controls">
-                            <button id="start-btn" class="btn primary">Start Practice</button>
-                            <button id="next-btn" class="btn secondary" style="display: none;">Next</button>
+                            <button id="next-btn" class="btn secondary">Next</button>
                             <button id="reveal-btn" class="btn reveal" style="display: none;">Reveal Answer</button>
                         </div>
                         <div class="feedback" id="feedback" style="display: none;">
@@ -156,7 +184,12 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module">
+        import { initializeApp } from './js/app.js';
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
 </body>
 
 </html>
