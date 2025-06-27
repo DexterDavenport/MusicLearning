@@ -21,7 +21,7 @@ export async function loadInstruments() {
 
         for (const fileName of instrumentFiles) {
             try {
-                const instrumentResponse = await fetch(`./instruments/${fileName}`);
+                const instrumentResponse = await fetch(`/instruments/${fileName}`);
                 if (instrumentResponse.ok) {
                     const instrumentData = await instrumentResponse.json();
                     const instrumentKey = fileName.replace('.json', '');
