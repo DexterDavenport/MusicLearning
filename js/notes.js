@@ -255,18 +255,6 @@ export function displayChordVariations(note) {
     // Display chord variations
     chordVariationsList.innerHTML = '';
     if (chordVariations.length > 0) {
-        chordVariations.forEach(chord => {
-            const chordItem = document.createElement('div');
-            chordItem.className = 'chord-variation-item';
-            chordItem.innerHTML = `
-                <div class="chord-variation-name">${chord.name} ${chord.category}</div>
-                <div class="chord-variation-description">${chord.description}</div>
-            `;
-            chordItem.addEventListener('click', () => {
-                displayChordFretboard(chord);
-            });
-            chordVariationsList.appendChild(chordItem);
-        });
         // Automatically show the first chord diagram inline
         displayChordFretboard(chordVariations[0]);
     } else {

@@ -151,7 +151,7 @@ export function createMultiPositionFretboard(instrument, positions, note) {
     for (let string = 0; string < numStrings; string++) {
         const y = 20 + string * stringSpacing + stringSpacing / 2;
         const stringName = strings[string].name.split(' ')[0];
-        svg += `<text x="35" y="${y + 4}" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">${stringName}</text>`;
+        svg += `<text x="20" y="${y + 4}" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">${stringName}</text>`;
     }
 
     // Highlight all positions of the selected note
@@ -195,7 +195,7 @@ export function createMultiPositionFretboard(instrument, positions, note) {
 export function createChordSVG(instrument, positions, chordName) {
     const strings = instrument.strings;
     const numStrings = strings.length;
-    const numFrets = 5;
+    const numFrets = 8;
     const stringSpacing = 30;
     const fretSpacing = 40;
     const nutWidth = fretSpacing / 4;
@@ -236,7 +236,7 @@ export function createChordSVG(instrument, positions, chordName) {
     }
 
     // Fret numbers (starting from fret 1)
-    for (let fret = 1; fret < numFrets; fret++) {
+    for (let fret = 1; fret < numFrets + 1; fret++) {
         const x = fretboardX + (fret - 1) * fretSpacing + fretSpacing / 2;
         svg += `<text x="${x}" y="15" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="12" font-weight="bold">${fret}</text>`;
     }
@@ -250,7 +250,7 @@ export function createChordSVG(instrument, positions, chordName) {
 
     // Chord positions
     positions.forEach((fret, stringIndex) => {
-        const x = (fret === 0)
+        const x = (fret === 0 || fret === -1)
             ? 50 - nutWidth / 2 + fretSpacing / 2
             : fretboardX + (fret - 1) * fretSpacing + fretSpacing / 2;
         const y = 20 + stringIndex * stringSpacing + stringSpacing / 2;
@@ -260,7 +260,8 @@ export function createChordSVG(instrument, positions, chordName) {
             svg += `<circle cx="${x}" cy="${y}" r="8" fill="#3498db" stroke="#2980b9" stroke-width="2"/>`;
             svg += `<text x="${x}" y="${y + 3}" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">O</text>`;
         } else if (fret === -1) {
-            svg += `<text x="${x}" y="${y + 3}" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✕</text>`;
+            svg += `<circle cx="${x}" cy="${y}" r="8" fill="#919191" stroke="#2980b9" stroke-width="2"/>`;
+            svg += `<text x="${x}" y="${y + 3}" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">X</text>`;
         } else {
             svg += `<circle cx="${x}" cy="${y}" r="12" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>`;
             svg += `<text x="${x}" y="${y + 4}" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">${fret}</text>`;
