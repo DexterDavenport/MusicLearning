@@ -1,7 +1,7 @@
 // Fretboard Visualization Module
 
 // Find all positions of a note on the fretboard
-function findNotePositions(instrument, note) {
+export function findNotePositions(instrument, note) {
     const positions = [];
     const strings = instrument.strings;
 
