@@ -16,7 +16,7 @@ import {
     setHTML
 } from './dom.js';
 
-import { createSVGFretboard, createChordSVG } from './fretboard.js';
+import { createSVGFretboard, createChordSVG, findNotePositions } from './fretboard.js';
 
 // Show flashcard feedback
 export function showFlashcardFeedback() {
@@ -36,7 +36,8 @@ export function showNoteFeedback(note) {
     setText(feedbackTitle, `Note: ${note.note}`);
     setText(feedbackMessage, `Position: ${note.string}, fret ${note.fret}`);
 
-    const svg = createSVGFretboard(instruments[currentInstrument], note.note);
+    // Create fretboard showing only the specific note position
+    const svg = createSVGFretboard(instruments[currentInstrument], note.note, note.string, note.fret);
     setHTML(fretboardDisplay, svg);
 }
 

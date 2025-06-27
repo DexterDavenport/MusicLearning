@@ -49,7 +49,7 @@ export function findNotePositions(instrument, note) {
 }
 
 // Create SVG fretboard for a single note
-export function createSVGFretboard(instrument, note) {
+export function createSVGFretboard(instrument, note, targetString = null, targetFret = null) {
     const strings = instrument.strings;
     const numStrings = strings.length;
     const numFrets = 13;
@@ -66,7 +66,7 @@ export function createSVGFretboard(instrument, note) {
     svg += `<rect width="${width}" height="${height}" fill="#2c3e50" rx="8"/>`;
 
     // Fretboard background (starts after nut)
-    svg += `<rect x="${fretboardX}" y="20" width="${numFrets * fretSpacing}" height="${numStrings * stringSpacing}" fill="#34495e" stroke="#ecf0f1" stroke-width="2" rx="4"/>`;
+    svg += `<rect x="${fretboardX}" y="20" width="${(numFrets - 1) * fretSpacing}" height="${numStrings * stringSpacing}" fill="#34495e" stroke="#ecf0f1" stroke-width="2" rx="4"/>`;
 
     // Nut (thin orange line at x=50)
     svg += `<line x1="50" y1="20" x2="50" y2="${20 + numStrings * stringSpacing}" stroke="#f39c12" stroke-width="4"/>`;
@@ -86,11 +86,11 @@ export function createSVGFretboard(instrument, note) {
         if (startFret > 0) {
             // Special string that starts at a higher fret (like banjo 5th string)
             startX = fretboardX + (startFret - 1) * fretSpacing;
-            svg += `<line x1="${startX}" y1="${y}" x2="${fretboardX + numFrets * fretSpacing}" y2="${y}" stroke="#ecf0f1" stroke-width="2"/>`;
+            svg += `<line x1="${startX}" y1="${y}" x2="${fretboardX + (numFrets - 1) * fretSpacing}" y2="${y}" stroke="#ecf0f1" stroke-width="2"/>`;
             // Add a visual indicator for the string start
             svg += `<circle cx="${startX - 5}" cy="${y}" r="3" fill="#f39c12"/>`;
         } else {
-            svg += `<line x1="${startX}" y1="${y}" x2="${fretboardX + numFrets * fretSpacing}" y2="${y}" stroke="#ecf0f1" stroke-width="2"/>`;
+            svg += `<line x1="${startX}" y1="${y}" x2="${fretboardX + (numFrets - 1) * fretSpacing}" y2="${y}" stroke="#ecf0f1" stroke-width="2"/>`;
         }
     }
 
@@ -104,12 +104,29 @@ export function createSVGFretboard(instrument, note) {
     for (let string = 0; string < numStrings; string++) {
         const y = 20 + string * stringSpacing + stringSpacing / 2;
         const stringName = strings[string].name.split(' ')[0];
-        svg += `<text x="35" y="${y + 4}" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">${stringName}</text>`;
+        svg += `<text x="20" y="${y + 4}" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">${stringName}</text>`;
     }
 
-    // Highlight all positions of the selected note
-    const positions = findNotePositions(instrument, note);
-    positions.forEach(pos => {
+    // Determine which positions to highlight
+    let positionsToHighlight = [];
+    if (targetString && targetFret !== null) {
+        // Highlight only the specific position requested
+        const stringIndex = strings.findIndex(s => s.name === targetString);
+        if (stringIndex !== -1) {
+            positionsToHighlight.push({
+                stringIndex: stringIndex,
+                fret: targetFret,
+                string: targetString,
+                note: note
+            });
+        }
+    } else {
+        // Highlight all positions of the note (original behavior)
+        positionsToHighlight = findNotePositions(instrument, note);
+    }
+
+    // Highlight the target positions
+    positionsToHighlight.forEach(pos => {
         const isOpen = pos.fret === 0;
         const x = isOpen
             ? 50 - nutWidth / 2 // Place open string note just to the right of the nut
@@ -130,7 +147,7 @@ export function createSVGFretboard(instrument, note) {
                 : fretboardX + (fret - 1) * fretSpacing + fretSpacing / 2;
             const y = 20 + string * stringSpacing + stringSpacing / 2;
             const fretNote = strings[string].frets[fret - startFret];
-            const isHighlighted = positions.some(pos => pos.stringIndex === string && pos.fret === fret);
+            const isHighlighted = positionsToHighlight.some(pos => pos.stringIndex === string && pos.fret === fret);
             if (!isHighlighted) {
                 const isOpenString = fret === startFret;
                 const fillColor = isOpenString ? '#3498db' : '#ecf0f1';

@@ -110,15 +110,19 @@ export function loadFallbackInstruments() {
 // Initialize instrument selector
 export async function initializeInstrumentSelector() {
     const instrumentContainer = document.querySelector('.instrument-buttons');
+    const instrumentDropdown = document.getElementById('instrument-dropdown');
 
-    // Clear existing buttons
+    // Clear existing buttons and dropdown
     instrumentContainer.innerHTML = '';
+    instrumentDropdown.innerHTML = '<option value="">Select an instrument...</option>';
 
-    // Create buttons for each available instrument
+    // Create buttons and dropdown options for each available instrument
     const { availableInstruments, instruments } = await import('./config.js');
 
     availableInstruments.forEach(instrumentKey => {
         const instrument = instruments[instrumentKey];
+
+        // Create button for desktop
         const button = document.createElement('button');
         button.className = 'instrument-btn';
         button.dataset.instrument = instrumentKey;
@@ -131,6 +135,19 @@ export async function initializeInstrumentSelector() {
         });
 
         instrumentContainer.appendChild(button);
+
+        // Create dropdown option for mobile
+        const option = document.createElement('option');
+        option.value = instrumentKey;
+        option.textContent = `${instrument.icon} ${instrument.name}`;
+        instrumentDropdown.appendChild(option);
+    });
+
+    // Add event listener for dropdown
+    instrumentDropdown.addEventListener('change', (e) => {
+        if (e.target.value) {
+            switchInstrument(e.target.value);
+        }
     });
 
     // Set the first instrument as active by default
@@ -139,6 +156,8 @@ export async function initializeInstrumentSelector() {
         if (firstButton) {
             firstButton.classList.add('active');
         }
+        // Set dropdown value
+        instrumentDropdown.value = availableInstruments[0];
     }
 }
 
@@ -152,6 +171,12 @@ export async function switchInstrument(instrumentName) {
             btn.classList.remove('active');
         });
         document.querySelector(`[data-instrument="${instrumentName}"]`).classList.add('active');
+
+        // Update dropdown value
+        const instrumentDropdown = document.getElementById('instrument-dropdown');
+        if (instrumentDropdown) {
+            instrumentDropdown.value = instrumentName;
+        }
 
         // Update current instrument
         setCurrentInstrument(instrumentName);

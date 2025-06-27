@@ -17,6 +17,36 @@
     font-weight: 500;
 }
 
+/* Mobile Dropdown */
+.instrument-dropdown {
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.instrument-dropdown:focus {
+    outline: none;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.instrument-dropdown option {
+    background: #667eea;
+    color: white;
+    padding: 8px;
+}
+
 .instrument-buttons {
     display: flex;
     justify-content: center;
@@ -75,12 +105,11 @@
     font-size: 0.9rem;
 }
 
-/* Mobile Optimizations */
+/* Responsive Design */
 @media (max-width: 768px) {
     .instrument-selector {
-        margin-bottom: 25px;
         padding: 15px;
-        border-radius: 12px;
+        margin-bottom: 20px;
     }
 
     .instrument-selector h3 {
@@ -88,34 +117,61 @@
         margin-bottom: 15px;
     }
 
+    /* Show dropdown on mobile, hide buttons */
+    .instrument-dropdown {
+        display: block;
+    }
+
     .instrument-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .instrument-btn {
-        min-width: 150px;
-        min-height: 90px;
-        padding: 20px 25px;
-        border-radius: 12px;
-    }
-
-    .instrument-icon {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-    }
-
-    .instrument-name {
-        font-size: 1rem;
-        font-weight: 600;
+        display: none;
     }
 }
 
+@media (min-width: 769px) {
+
+    /* Show buttons on desktop, hide dropdown */
+    .instrument-dropdown {
+        display: none;
+    }
+
+    .instrument-buttons {
+        display: flex;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .instrument-selector {
+        padding: 10px 15px;
+        margin-bottom: 15px;
+    }
+
+    .instrument-selector h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .instrument-dropdown {
+        max-width: 250px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Large mobile devices */
+@media (min-width: 481px) and (max-width: 768px) {
+    .instrument-dropdown {
+        max-width: 350px;
+        padding: 14px 18px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Extra small devices */
 @media (max-width: 480px) {
     .instrument-selector {
         padding: 12px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .instrument-selector h3 {
@@ -123,17 +179,9 @@
         margin-bottom: 12px;
     }
 
-    .instrument-btn {
-        min-width: 130px;
-        min-height: 80px;
-        padding: 15px 20px;
-    }
-
-    .instrument-icon {
-        font-size: 2rem;
-    }
-
-    .instrument-name {
+    .instrument-dropdown {
+        max-width: 280px;
+        padding: 10px 12px;
         font-size: 0.9rem;
     }
 }
@@ -148,35 +196,6 @@
 
     .instrument-icon {
         font-size: 1.8rem;
-    }
-
-    .instrument-name {
-        font-size: 0.85rem;
-    }
-}
-
-/* Landscape orientation on mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-    .instrument-selector {
-        margin-bottom: 15px;
-        padding: 10px 15px;
-    }
-
-    .instrument-buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .instrument-btn {
-        min-width: 120px;
-        min-height: 70px;
-        padding: 12px 16px;
-    }
-
-    .instrument-icon {
-        font-size: 1.8rem;
-        margin-bottom: 6px;
     }
 
     .instrument-name {

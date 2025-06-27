@@ -38,7 +38,7 @@ export function generateAllFlashcards() {
     console.log('Generating all flashcards for practice type:', flashcardSettings.practiceType);
 
     if (flashcardSettings.practiceType === 'notes') {
-        // Generate all note flashcards
+        // Generate all note flashcards with string-specific questions
         instrument.strings.forEach((string, stringIndex) => {
             const startFret = string.startFret || 0;
 
@@ -49,14 +49,16 @@ export function generateAllFlashcards() {
                 availableFlashcards.push({
                     id: flashcardId,
                     type: 'note',
-                    question: note,
+                    question: `${note} on ${string.name}`,
                     answer: {
                         note: note,
                         string: string.name,
                         fret: actualFret,
                         stringIndex: stringIndex
                     },
-                    position: `${string.name}, fret ${actualFret}`
+                    position: `${string.name}, fret ${actualFret}`,
+                    targetString: string.name,
+                    targetNote: note
                 });
             });
         });
@@ -85,7 +87,7 @@ export function generateAllFlashcards() {
         });
     } else if (flashcardSettings.practiceType === 'both') {
         // Generate both notes and chords
-        // Notes
+        // Notes with string-specific questions
         instrument.strings.forEach((string, stringIndex) => {
             const startFret = string.startFret || 0;
 
@@ -96,14 +98,16 @@ export function generateAllFlashcards() {
                 availableFlashcards.push({
                     id: flashcardId,
                     type: 'note',
-                    question: note,
+                    question: `${note} on ${string.name} string`,
                     answer: {
                         note: note,
                         string: string.name,
                         fret: actualFret,
                         stringIndex: stringIndex
                     },
-                    position: `${string.name}, fret ${actualFret}`
+                    position: `${string.name}, fret ${actualFret}`,
+                    targetString: string.name,
+                    targetNote: note
                 });
             });
         });
