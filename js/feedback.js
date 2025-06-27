@@ -36,7 +36,7 @@ export function showNoteFeedback(note) {
     setText(feedbackTitle, `Note: ${note.note}`);
     setText(feedbackMessage, `Position: ${note.string}, fret ${note.fret}`);
 
-    const svg = createSVGFretboard(instruments[currentInstrument], note);
+    const svg = createSVGFretboard(instruments[currentInstrument], note.note);
     setHTML(fretboardDisplay, svg);
 }
 

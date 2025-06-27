@@ -1,5 +1,53 @@
 // Fretboard Visualization Module
 
+// Find all positions of a note on the fretboard
+function findNotePositions(instrument, note) {
+    const positions = [];
+    const strings = instrument.strings;
+
+    for (let stringIndex = 0; stringIndex < strings.length; stringIndex++) {
+        const string = strings[stringIndex];
+        const startFret = string.startFret || 0;
+
+        for (let fretIndex = 0; fretIndex < string.frets.length; fretIndex++) {
+            const fretNote = string.frets[fretIndex];
+            const actualFret = startFret + fretIndex;
+
+            // Check if this fret contains the note we're looking for
+            // Handle cases where the note might be "G#/Ab" and we're looking for "G#" or "Ab"
+            let isMatch = false;
+
+            if (fretNote === note) {
+                // Exact match
+                isMatch = true;
+            } else if (fretNote.includes('/')) {
+                // Handle sharps/flats like "G#/Ab"
+                const noteParts = fretNote.split('/');
+                if (noteParts.includes(note)) {
+                    isMatch = true;
+                }
+            } else if (note.includes('/')) {
+                // Handle case where we're looking for "G#/Ab" but fret has just "G#"
+                const noteParts = note.split('/');
+                if (noteParts.includes(fretNote)) {
+                    isMatch = true;
+                }
+            }
+
+            if (isMatch) {
+                positions.push({
+                    stringIndex: stringIndex,
+                    fret: actualFret,
+                    string: string.name,
+                    note: fretNote
+                });
+            }
+        }
+    }
+
+    return positions;
+}
+
 // Create SVG fretboard for a single note
 export function createSVGFretboard(instrument, note) {
     const strings = instrument.strings;
